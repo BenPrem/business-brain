@@ -1,0 +1,11 @@
+# Local Overrides
+
+Copy this file to `CLAUDE.local.md` (which is gitignored) for machine-specific
+notes and personal overrides that should never be shared via git — API endpoint
+overrides, personal shortcuts, local paths, account URLs.
+
+## Local Notes
+- Primary development machine: [your machine]
+- Claude plan: [your plan]
+- Task system workspace: [your workspace URL]
+- Any local tool accounts: [add as set up]

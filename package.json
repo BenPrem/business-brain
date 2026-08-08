@@ -1,0 +1,10 @@
+{
+  "name": "business-brain",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Claude Code business workspace template — hooks, tools, and conventions.",
+  "type": "module",
+  "scripts": {
+    "serve": "node tools/serve.mjs"
+  }
+}

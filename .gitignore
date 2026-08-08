@@ -1,0 +1,48 @@
+# Secrets — never commit environment files or credentials
+.env
+.env.*
+credentials/
+credentials.json
+*.pem
+*.key
+
+# Claude Code local state.
+# settings.local.json: Claude Code appends approved commands here, and approvals
+# can embed secrets (tokens pasted into approved command lines) — never commit.
+.claude/settings.local.json
+CLAUDE.local.md
+**/.claude/worktrees/
+
+# Local hosting state (holds site link state; deploys must use explicit --site)
+.netlify/
+**/.netlify/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node
+node_modules/
+
+# Python bytecode
+__pycache__/
+*.pyc
+
+# File-sync conflict copies (Syncthing and friends)
+*.sync-conflict-*
+.stfolder/
+
+# Logs
+*.log
+logs/
+
+# Tool output (launch_audit reports, screenshot captures)
+reports/
+screenshots/
+
+# Large media — keep the repo lean; store deliverable media elsewhere
+*.mp4
+*.mov
+*.zip
+*.tar.gz
+*.wav

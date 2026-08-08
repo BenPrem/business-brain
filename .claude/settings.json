@@ -1,0 +1,34 @@
+{
+  "permissions": {
+    "deny": [
+      "Bash(netlify link*)",
+      "Bash(netlify unlink*)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$CLAUDE_PROJECT_DIR\"/tools/hooks/deploy-guard.sh",
+            "timeout": 10,
+            "statusMessage": "Checking deploy gates"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$CLAUDE_PROJECT_DIR\"/tools/hooks/session-staleness.sh",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

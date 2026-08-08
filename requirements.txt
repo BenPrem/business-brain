@@ -1,0 +1,8 @@
+# Python dependencies for tools/
+# - requests, python-dotenv: tools/openrouter_client.py (tools/launch_audit.py is
+#   intentionally stdlib-only so it can run anywhere without setup)
+# - playwright: tools/shot.py and tools/screenshot.py — after installing, also run:
+#   playwright install chromium
+requests
+python-dotenv
+playwright
