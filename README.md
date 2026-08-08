@@ -57,13 +57,25 @@ That's the whole install. **No API keys required to start — and none ship in t
 | **`CLAUDE.md`** | The operating system: role, #1 priority, source-of-truth hierarchy, hard gates, how the workspace works. Reviewed like code — every always-loaded token costs quality. |
 | **`context/`** | Who you are (`me.md`), what the business is (`work.md`), what matters right now (`current-priorities.md`), where you're going (`goals.md`). The priorities file is the daily kickoff and trumps everything else. |
 | **`.claude/rules/learned-rules.md`** | The compounding asset. Every correction you give the agent gets routed to the right layer — hook, script, skill edit, or a 1–3 line rule here. Six months in, this file is why the agent stops repeating mistakes. |
-| **`.claude/skills/`** | Playbooks the agent runs on trigger phrases: daily briefs, client onboarding, research, QA checklists. Only frontmatter loads until a skill is invoked, so 50 skills cost almost nothing at rest. |
+| **`.claude/skills/`** | 32 included playbooks the agent runs on trigger phrases (full list below). Only frontmatter loads until a skill is invoked, so a large library costs almost nothing at rest. |
 | **`tools/hooks/`** | Deterministic guardrails wired into Claude Code's hook system. The deploy guard blocks dangerous commands *in code* — an agent can't be talked out of a hook. (Netlify is the worked example; the shape ports to any host's CLI.) |
 | **`memory/`** | Conventions for what the agent remembers, with token budgets, write-owners per file, and a privacy rule: store the fact, not the source. |
 | **`decisions/log.md`** | Append-only decision record: `[DATE] DECISION … | REASONING … | CONTEXT …`. Superseded decisions get marked, never deleted. |
 | **`workflows/` + `tools/`** | The WAT split: **W**orkflows are SOPs in markdown, **T**ools are deterministic scripts, the **A**gent is the flexible reasoning between them. If it must happen the same way every time, it's code, not prompting. |
 | **`_templates/`** | Scaffolds for new clients, ventures, and session summaries so structure stays consistent as you grow. |
 | **`references/`** | Deep methodology that loads only when needed: multi-agent patterns, eval design, the security checklist. |
+
+## The skill library (32 included)
+
+Ported from the private system's working library and genericized — these are playbooks that have run real client work, not speculative scaffolding. `ls .claude/skills/` is always the canonical inventory.
+
+- **Client lifecycle:** lead-scraper · discovery-call-prep · prospect-workup · proposal-generator · client-onboarding · cold-email · email-composer · follow-up-nurture
+- **Content & social:** content-strategy · content-calendar · content-repurposer · content-research-writer · social-media-manager · social-media-auditor
+- **Email series:** welcome-email-series · post-purchase-email-series
+- **Websites & launch:** website-builder · brand-guide-builder · site-qa-checklist · seo-audit · site-launch-cutover
+- **Local & reputation:** gbp-local-seo · review-manager · competitive-ads-extractor
+- **Sales & strategy:** hormozi-100m-leads (applies Alex Hormozi's published frameworks, with attribution) · company-teardown
+- **Operations:** daily-brief · web-research · mcp-integration · productization-journal · invoice-tracker · meeting-listener
 
 ## Design principles (learned from the agent wars of 2026)
 
