@@ -65,17 +65,21 @@ That's the whole install. **No API keys required to start — and none ship in t
 | **`_templates/`** | Scaffolds for new clients, ventures, and session summaries so structure stays consistent as you grow. |
 | **`references/`** | Deep methodology that loads only when needed: multi-agent patterns, eval design, the security checklist. |
 
-## The skill library (32 included)
+## The skill library (47 included)
 
-Ported from the private system's working library and genericized — these are playbooks that have run real client work, not speculative scaffolding. `ls .claude/skills/` is always the canonical inventory.
+The private system's complete working library, genericized — these are playbooks that have run real client work, not speculative scaffolding. `ls .claude/skills/` is always the canonical inventory.
 
-- **Client lifecycle:** lead-scraper · discovery-call-prep · prospect-workup · proposal-generator · client-onboarding · cold-email · email-composer · follow-up-nurture
+- **Client lifecycle:** lead-scraper · discovery-call-prep · prospect-workup · proposal-generator · client-onboarding · cold-email · cold-email-campaign · email-composer · follow-up-nurture · access-transfer-tracker
 - **Content & social:** content-strategy · content-calendar · content-repurposer · content-research-writer · social-media-manager · social-media-auditor
 - **Email series:** welcome-email-series · post-purchase-email-series
-- **Websites & launch:** website-builder · brand-guide-builder · site-qa-checklist · seo-audit · site-launch-cutover
+- **Websites & launch:** website-builder · interactive-website-builder · scroll-demo-builder · brand-guide-builder · site-qa-checklist · seo-audit · site-launch-cutover · lead-flow-verifier
+- **Video & assets:** social-video-producer · video-analyzer · ai-asset-generator · ai-3d-generator · stylized-3d-worldbuilding · apple-grade-design
 - **Local & reputation:** gbp-local-seo · review-manager · competitive-ads-extractor
-- **Sales & strategy:** hormozi-100m-leads (applies Alex Hormozi's published frameworks, with attribution) · company-teardown
-- **Operations:** daily-brief · web-research · mcp-integration · productization-journal · invoice-tracker · meeting-listener
+- **Retainer ops:** weekly-client-checkin · retainer-reporting · regulated-copy-compliance · invoice-tracker
+- **Sales & strategy:** hormozi-100m-leads (applies Alex Hormozi's published frameworks, with attribution) · company-teardown · ai-demo-builder
+- **Operations:** daily-brief · web-research · mcp-integration · productization-journal · meeting-listener
+
+Backing them: a `guides/` methodology library (StoryBrand and Hormozi frameworks as attributed summaries, billboard/outdoor design rules, vertical-video safe zones, paid-ads playbook, speed-to-call, Meta Graph API setup), a 64-rule learned-rules file with an anonymized incident archive explaining why each rule exists, and 16 working Python/Node tools wired to the skills that use them.
 
 ## Design principles (learned from the agent wars of 2026)
 

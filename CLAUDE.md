@@ -32,7 +32,7 @@ Full bio lives in `context/me.md` — keep this to what the agent needs every se
 ## How This Workspace Works
 
 ### WAT Framework
-**Workflows** (`workflows/` .md) = SOPs. **Tools** (`tools/` scripts) = deterministic code. **You** = flexible reasoning between them. If it must happen the same way every time, it's a script, not a prompt.
+**Workflows** (`workflows/` .md) = SOPs. **Tools** (`tools/` scripts) = deterministic code. **You** = flexible reasoning between them. If it must happen the same way every time, it's a script, not a prompt. (`templates/prospect-workup/` is tool-owned by `tools/prospect_workup.py` — don't relocate.)
 
 ### Skills
 `.claude/skills/[name]/SKILL.md` — only frontmatter loads until invoked. Suggest a new skill when a request repeats. Write skills yourself; never install unreviewed third-party skills (see SECURITY.md).
@@ -65,6 +65,18 @@ Test locally first. <Your hosting stack and its rules go here.> Git push only wh
 | Guide | When to read | Path |
 |-------|-------------|------|
 | Connecting tools | Wiring up a task system, model routing, hosting, or any new integration | `guides/connecting-tools.md` |
+| StoryBrand framework | Websites, proposals, emails, client-facing copy | `guides/storybrand-framework.md` |
+| Hormozi content framework | Content strategy, social, branding, campaigns | `guides/hormozi-content-framework.md` |
+| Prospect workup workflow | New prospect → full 6-phase sales prep | `guides/prospect-workup-workflow.md` |
+| Video production rules | Video/reel/ad production | `guides/video-production-rules.md` |
+| Social media rules | Social strategy, content plans, audits | `guides/social-media-rules.md` |
+| Production standards | Reel production, algorithm optimization, cadence | `guides/social-media-production-standards.md` |
+| Safe zones | Vertical video text/logo placement specs | `guides/social-media-safe-zones.md` |
+| Billboard & outdoor design | Billboards, signs, banners, any large-format print | `guides/billboard-outdoor-design-rules.md` |
+| Speed-to-call methodology | Website CTAs, scheduling questionnaires | `guides/speed-to-call-methodology.md` |
+| Paid ads creative playbook | Ad creative production | `guides/paid-ads-creative-playbook.md` |
+| Meta Graph API setup | Connecting FB/IG reporting for a client | `guides/meta-graph-api-setup.md` |
+| AI-generation CLI reference | Image/video/3D generation via a vendor CLI | `references/higgsfield-cli-reference.md` |
 | Multi-agent patterns | Orchestrating subagents | `references/advanced-agent-patterns.md` |
 | Eval design | Building evals for a skill | `references/eval-design-templates.md` |
 | Security checklist | Before anything goes public | `references/security-checklist.md` |

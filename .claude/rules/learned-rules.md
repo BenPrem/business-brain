@@ -75,3 +75,33 @@ archive one).
 [44] Never write social/content strategy from general knowledge — research 3-5 real competitors first.
 [45] Research without action items is trivia.
 [46] Unfamiliar vertical → parallel research agents (competitors + domain constraints) BEFORE design. Client-provided plans often carry dead assumptions.
+
+## Visual / Graphics Production
+[47] Never ship a stock or AI-generated photo you haven't downloaded and viewed. A photo ID or URL without visual verification produces wildly wrong subjects.
+[48] Parallel slides stay parallel: extract shared size/spacing constants, size to the LONGEST string in the series, and render the parallel frames side-by-side before shipping — never shrink one slide in isolation to fix overflow.
+[49] Center on the CANVAS (width/2), then assert extents fit the safe zone — the safe zone is a constraint to verify against, not a coordinate system to design in. Programmatic graphics carry layout assertions: hard-stop boundaries between text and shapes, exactly one logo, children optically centered from container bounds, a centerline QA overlay.
+[50] Selection beats correction for photo geometry: measure horizontal and vertical line residuals SEPARATELY. Disagreement >1° = perspective keystoning — no rotation fixes it and warping fabricates real-world geometry; swap the photo. Choose hero images by horizontal residual.
+
+## Front-End
+[51] Mobile QA = headless browser, VIEWPORT-only screenshots at small-phone / large-phone / tablet widths, sequential scrolls with overlap — never full-page captures (they render artifacts on long pages with sticky elements).
+[52] Test the smallest common viewport (375px) FIRST — a hero that fits at 390px still orphan-wraps at 375. Scale type up from mobile (`text-4xl sm:text-5xl md:text-7xl`) and hide manual line breaks on mobile (`<br class="hidden md:inline">`).
+[53] Light-background card inside a dark section: set explicit `color` on EVERY text element in the card — inheritance passes the section's light text color through and makes titles invisible.
+[54] `scrollIntoView` ignores ancestors' `overflow: hidden` and will shift the layout off-viewport — compute the offset and call `scrollTo` on the intended scroll container; pair `overflow: clip` defensively on app shells.
+[55] Never blanket `border-bottom: none` on button classes — it clobbers outline/ghost buttons that draw their border with the shorthand. Kill underlines at the base `a` with `text-decoration: none`, or scope the override per-class.
+
+## Static-Host Deployment (additions)
+[56] Security-header baseline on every client site: HSTS, X-Frame-Options, X-Content-Type-Options nosniff, Referrer-Policy, Permissions-Policy. Private/demo paths additionally get X-Robots-Tag noindex + Cache-Control no-store.
+[57] Browser `Cache-Control` alone leaves the host's edge CDN stale — frequently-updated HTML also needs the host's CDN-level cache header set to `max-age=0, must-revalidate`. Verify the response shows revalidation (not a long-age hit) and purge the edge cache via API after fixing the header.
+[58] Client-side passwords are view-source-visible — any constant in public JS ships in plaintext. Minimum bar for a gated page: a serverless function validating against an env var, plus per-IP rate limiting and an Origin/Referer whitelist (site domain + localhost) returning 403 otherwise.
+
+## Data Operations
+[59] Grep the live schema before adding any column a spec says to "add" — specs are written from memory and are often wrong about what already exists. Verify-before-assume on every column-add line.
+[60] Mass-deleting production data is a four-step discipline: inventory and classify every row first → scope the DELETE by the meaningful test predicate (never match-all) → split rows carrying owner foreign keys and handle them explicitly → verify with before/after counts.
+
+## Shell / Environment
+[61] Env vars do NOT persist across tool-call shells — re-export at the top of every command. Never `source .env` (quoting inconsistencies crash it); extract single values via `grep '^VAR=' .env | cut -d= -f2`.
+
+## Campaigns / Legal
+[62] Marketing SMS requires sender/number verification (toll-free verification + campaign registry) with 1-3+ week lead times — confirm the client's ESP has it verified BEFORE committing any SMS campaign timeline. If not verified, default to email-first.
+[63] Real-time programmatic "does user X follow account Y" verification does not exist — the platform APIs removed it. The three honest options: a DM-keyword bot, a draw-time follower-list cross-reference, or the honor system with manual winner verification (correct default for small entry pools).
+[64] Bonus-entries-for-purchase is legal ONLY with a free base entry method — without one it's an illegal lottery. Every giveaway ships with an Official Rules page (sponsor, eligibility, entry period + timezone, prize value, drawing mechanism, "No Purchase Necessary", data usage) and keeps prize value under state bonding thresholds.

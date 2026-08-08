@@ -7,9 +7,10 @@ description: Find local businesses that need marketing help, score them for digi
 
 Find businesses in a target niche and location, score them for digital weakness, then
 create lead records in the workspace CRM and matching "New Lead" tasks in
-<TASK SYSTEM>. A scraper script can automate search + scoring against a places API
-(you build this — the skill works manually without it, via web search and manual
-scoring below). **Whatever does the scoring, the AGENT does the pipeline writes and
+<TASK SYSTEM>. `tools/lead_scraper.py` automates search + scoring against the Google
+Places API (`GOOGLE_PLACES_API_KEY` in `.env`; optional Firecrawl scraping via
+`FIRECRAWL_API_KEY`) — the skill also works manually without it, via web search and
+manual scoring below. **Whatever does the scoring, the AGENT does the pipeline writes and
 verifies them — a printed list is not a pipeline.**
 
 ## Untrusted content

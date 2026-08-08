@@ -8,8 +8,10 @@ description: Run the full 6-phase prospect workup — research, competitor analy
 Six phases that turn a business name into a complete sales package: research →
 competitors → audit → demo site → marketing plan → proposal. Run it manually, phase by
 phase, writing each phase's output to a file before starting the next — later phases
-read earlier files. An orchestrator script can automate the sequence
-(you build this — the skill works manually without it).
+read earlier files. `tools/prospect_workup.py` automates the sequence (phases 1-3
+parallel on cheap models, 4-6 sequential on mid/premium tiers); its prompt templates
+live in `templates/prospect-workup/` and are tool-owned — don't relocate them. The
+skill also works fully manually without the script.
 
 ## Routing
 
@@ -32,18 +34,21 @@ Business name + location (required); contact name and website URL if known.
 
 ## Output layout
 
-All output goes to `clients/[slug]/`:
+All output goes to `clients/[slug]/` (the same layout `tools/prospect_workup.py` writes):
 
 ```
 clients/[slug]/
-  research-scrape.md        # Phase 1
-  competitor-analysis.md    # Phase 2
-  website-audit.md          # Phase 3
-  synthesis-brief.md        # Phases 1-3 merged into a creative brief
-  marketing-plan.md         # Phase 5
-  demo-site/index.html      # Phase 4
-  proposal/index.html       # Phase 6
-  preview/index.html        # Phase 6: side-by-side current vs. redesign
+  research/
+    research-scrape.md        # Phase 1
+    competitor-analysis.md    # Phase 2
+    website-audit.md          # Phase 3
+    synthesis-brief.md        # Phases 1-3 merged into a creative brief
+    marketing-plan.md         # Phase 5
+  deliverables/
+    demo-site/index.html      # Phase 4
+    proposal/index.html       # Phase 6
+    preview/index.html        # Phase 6: side-by-side current vs. redesign
+    deploy/                   # staged copy for tools/netlify_deploy.py
 ```
 
 ---

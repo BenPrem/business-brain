@@ -5,7 +5,7 @@ description: Record a live meeting from the Mac mic, then transcribe and produce
 
 # Meeting Listener
 
-Wraps a small recorder script, e.g. `tools/meeting_listener.py` (you build this — the skill works manually without it: record with any app, drop the audio file in the meeting folder, and start at the transcription step). The script runs ffmpeg as a detached background process so the operator triggers start/stop from chat without touching Terminal.
+Wraps the recorder script `tools/meeting_listener.py` (ships with this repo; the skill also works manually without it: record with any app, drop the audio file in the meeting folder, and start at the transcription step). The script runs ffmpeg as a detached background process so the operator triggers start/stop from chat without touching Terminal, then transcribes (local Whisper, or Groq if `GROQ_API_KEY` is set) and summarizes via `tools/openrouter_client.py`.
 
 ## Trigger phrases → command
 

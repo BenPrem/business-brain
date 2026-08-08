@@ -1,8 +1,14 @@
 # Python dependencies for tools/
-# - requests, python-dotenv: tools/openrouter_client.py (tools/launch_audit.py is
-#   intentionally stdlib-only so it can run anywhere without setup)
+# - requests, python-dotenv: openrouter_client.py and the tools built on it
+#   (prospect_workup.py, website_auditor.py, competitor_analyzer.py,
+#   lead_scraper.py, cold_email.py, meeting_listener.py). asana_cli.py,
+#   netlify_deploy.py, meta_insights.py, meta_posts.py, and launch_audit.py
+#   are intentionally stdlib-only so they run anywhere without setup.
 # - playwright: tools/shot.py and tools/screenshot.py — after installing, also run:
 #   playwright install chromium
+# Optional, install only if you use the feature:
+# - openai-whisper: local transcription for tools/meeting_listener.py
+#   (skipped automatically when GROQ_API_KEY is set). Needs ffmpeg (brew install ffmpeg).
 requests
 python-dotenv
 playwright
